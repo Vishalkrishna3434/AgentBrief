@@ -32,11 +32,9 @@ Base = declarative_base()
 # Creates a DB session for a request and closes it afterwards
 def get_db():
     db = SessionLocal()
-
     try:
         # Give database session to route
         yield db
-
     finally:
         # Always close connection after request finishes
         db.close()
